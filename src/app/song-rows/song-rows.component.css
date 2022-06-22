@@ -1,0 +1,98 @@
+
+
+/* CSS for Tracklist*/
+.grid {
+    display:grid;
+    grid-template-columns: [index] 1% [image] 5% [info] 30% [timestamp] 15% [links] 15%;
+    column-gap: 16px;
+    padding-left: 10px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    background-color: rgba(12, 101, 218, 0.278);
+    border-color: #000000;
+    color:cyan;
+    font-size: medium;
+    font-size: 11px;
+}
+.index{
+    visibility:hidden;
+}
+
+.index-unreleased{
+    visibility:hidden;
+}
+
+
+.song-info{
+    display:grid;
+    height:100%;
+}
+
+.song-info-unreleased{
+    display:grid;
+    height:100%;
+    color:gray;
+}
+
+.timestamp-unreleased {
+    color:gray
+}
+
+
+.songArtist{
+    width:100%;
+}
+
+.desktop-popup{
+    display:none
+}
+
+@media (min-width: 767px) {
+    .grid {
+        display:grid;
+        grid-template-columns: [index] 3% [image] 5% [info] 42% [timestamp] 25% [links] 25%;
+        column-gap: 16px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 20px;
+        background-color: rgba(12, 101, 218, 0.278);
+        border-color: #000000;
+        color:white;
+        font-size: medium;
+    }
+    .song-info{
+        display:grid;
+        height:100%;
+    }
+    
+    .song-info-unreleased{
+        display:grid;
+        height:100%;
+        color:gray;
+    }
+
+    .index{
+        visibility: visible;
+    }
+
+    .index-unreleased{
+        display:flex;
+        color:gray;
+    }
+    
+    .songArtist{
+        width:100%;
+    }
+
+    .timestamp-unreleased {
+        color:gray
+    }
+    
+    .mobile-bottomsheet{
+        display:none;
+    }
+
+    .desktop-popup{
+        display:flex
+    }
+}

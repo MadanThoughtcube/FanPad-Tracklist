@@ -1,0 +1,57 @@
+<!--tracklist-->
+<div *ngFor="let song of songs" class="grid">
+    <!--check for release-->
+    <!--index in tracklist-->
+    <div *ngIf="song.status === true" class="index">
+        {{song.index}}
+    </div>
+    <div *ngIf="song.status !== true" class="index-unreleased">
+        {{song.index}}
+    </div>
+
+    <!--album/single image-->
+    <div class="image">
+        <img src="default_100.png">
+    </div>
+
+    <!--Artist/Songname-->
+    <div *ngIf="song.status === true" class="song-info">
+        <span class="songName">{{song.name}}</span>
+        <span class="songArtist">{{song.artist}}</span>
+    </div>
+    <div *ngIf="song.status !== true" class="song-info-unreleased">
+        <span class="songName">{{song.name}}</span>
+        <span class="songArtist">{{song.artist}}</span>
+    </div>
+
+    <!--Timestamp-->
+    <div *ngIf="song.status === true" class="timestamp">
+        {{song.timestamp}}
+    </div>
+    <div *ngIf="song.status !== true" class="timestamp-unreleased">
+        {{song.timestamp}}
+    </div>
+
+    <!--Status of Song-->
+    <div class="status">
+        <div *ngIf=song.status>
+            <div class="mobile-bottomsheet">
+                <app-bottomsheet></app-bottomsheet>
+            </div>
+           <div class="desktop-popup">
+            <button mat-icon-button aria-label="other links" (click)="openDialogLinks()">
+                <mat-icon>open_in_new</mat-icon>
+            </button>
+           </div>
+        </div>
+        <div *ngIf=!song.status>
+            <button style="background-color: rgba(128, 128, 128, 0.365); color: white;" mat-raised-button (click)="openDialog()">
+                Notify Me
+            </button>
+        </div>
+
+    </div>
+    
+</div>
+    
+

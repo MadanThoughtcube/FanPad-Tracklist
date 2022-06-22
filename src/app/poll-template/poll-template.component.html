@@ -1,0 +1,140 @@
+<div class="page-container">
+    <div class="background-image"></div>
+    
+    <div class="page-content">
+        <div class="artist-image">
+            <div>
+                <img class="circle-image white-border hover-shadow" src={{artistImage}}>
+            </div>
+        
+            <h1>{{artistName}}</h1>
+        </div>
+        
+        
+        
+        <div class="welcome-text">
+            <p *ngIf="introPlayed==false" [@textFadeInOut]>You are now following {{artistName}}</p>
+        </div>
+        
+        <div *ngIf="introPlayed" [@fadeSlideInOut] class="poll-container box-shadow">
+        
+            <div style="display:flex; justify-content: center; flex-wrap: wrap;">
+                <div class="poll-header">
+                    <!-- <p *ngIf="!voteSubmitted">Listen to these unreleased snippets and help me decide which single to release
+                        next by voting on which you prefer</p> -->
+                    <p *ngIf="!voteSubmitted">Help me decide which song I should mint next! Listen to my latest single and two unreleased songs below and vote
+                    for your favorite</p>
+                    <p *ngIf="voteSubmitted">Thanks for voting!</p>
+                </div>
+
+                <p *ngIf="!voteSubmitted" style="width: 100%; color:grey; font-size: small;">All submitted votes are final! Pick carefully!</p>
+            </div>
+        
+            <ul class="hide-marker poll-options">
+
+                <!-- TODO: Change to dynamic rendering once dynamic src for iframe is figured out -->
+        
+                <!-- <li *ngFor="let song of pollItems; let ind=index" class="poll-element">
+    
+                    <div style="height: 4em; width: 100%; margin: 0.5em auto;">
+                        <h3>{{song.name}}</h3>
+                    </div> -->
+                    <!-- <h3>{{song.name}}</h3> -->
+        
+                    <!-- TODO: IMPORTANT NOTE: Dynamically setting the src link of an iframe requires special security consideration and needs extra code -->
+                    <!-- <iframe width="100%" height="auto" scrolling="no" frameborder="no" allow="autoplay"
+                            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1245609985&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false">
+                        </iframe> -->
+        
+                    <!-- <iframe width="100%" height="auto" scrolling="no" frameborder="no" allow="autoplay"
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1237587943&color=00A0BF&auto_play=false&hide_related=false&show_comments=false&show_artwork=false&show_user=false&show_reposts=false&show_teaser=false&sharing=false">
+                    </iframe>
+        
+                    <div class="vote-button">
+                        <div class="button">
+                            <button [disabled]="voteSubmitted" (click)="onVote($event)" id="vote-{{ind+1}}">Vote</button>
+                        </div>
+                    </div>
+                </li> -->
+
+
+                <!-- SONG 1 -- TEMP -->
+                <li class="poll-element">
+                
+                    <div class="poll-element-title">
+                        <h3>{{pollItems[0].name}}</h3>
+                    </div>
+                
+                    <iframe width="100%" height="auto" scrolling="no" frameborder="no" allow="autoplay"
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1237587943&color=00A0BF&auto_play=false&hide_related=false&show_comments=false&show_artwork=false&show_user=false&show_reposts=false&show_teaser=false&sharing=false">
+                    </iframe>
+                
+                    <div class="vote-button">
+                        <div class="button">
+                            <button [disabled]="voteSubmitted" (click)="onVote($event)" id="vote-1">Vote</button>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- SONG 2 -- TEMP -->
+                <li class="poll-element">
+                
+                    <div class="poll-element-title">
+                        <h3>{{pollItems[1].name}}</h3>
+                    </div>
+                
+                    <iframe width="100%" height="auto" scrolling="no" frameborder="no" allow="autoplay"
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1091750941%3Fsecret_token%3Ds-FH2bf13Sxht&color=00A0BF&auto_play=false&hide_related=false&show_comments=false&show_artwork=false&show_user=false&show_reposts=false&show_teaser=false&sharing=false">
+                    </iframe>
+                
+                    <div class="vote-button">
+                        <div class="button">
+                            <button [disabled]="voteSubmitted" (click)="onVote($event)" id="vote-2">Vote</button>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- SONG 3 -- TEMP -->
+                <li class="poll-element">
+                
+                    <div class="poll-element-title">
+                        <h3>{{pollItems[2].name}}</h3>
+                    </div>
+                
+                    <iframe width="100%" height="auto" scrolling="no" frameborder="no" allow="autoplay"
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1091749423%3Fsecret_token%3Ds-E39kbZdLKci&color=00A0BF&auto_play=false&hide_related=false&show_comments=false&show_artwork=false&show_user=false&show_reposts=false&show_teaser=false&sharing=false">
+                    </iframe>
+                
+                    <div class="vote-button">
+                        <div class="button">
+                            <button [disabled]="voteSubmitted" (click)="onVote($event)" id="vote-3">Vote</button>
+                        </div>
+                    </div>
+                </li>
+        
+            </ul>
+        
+            <div *ngIf="voteSubmitted" [@fadeSlideInOut] class="poll-results" >
+                <div class="result-header">
+                    <strong class="text-bold text-large">Poll Results</strong>
+                </div>
+                <div class="poll-result d-flex position-relative" *ngFor="let song of pollItems; let ind=index" >
+                    <p>{{song.name}}</p>
+                    <span [ngStyle]="{'width': song.percent +'%'}" class="percent-bar"></span>
+                    <span class="percent-text">{{song.percent}}%</span>
+                </div>
+            </div>
+        
+        </div>
+        
+        <div [@logoIntro] (@logoIntro.done)="logoIntroEnd()" class="footer" id="page-end">
+            <p>fan<b>pad</b></p>
+            <div class="fanpad-logo">
+                <img src="../assets/img/logoSVG.webp">
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+<!--  -->

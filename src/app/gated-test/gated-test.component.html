@@ -1,0 +1,17 @@
+<h1>Gated Page Test</h1>
+<div *ngIf="!getIsClaimed()">
+    <p>The page contents is token gated
+        <br>
+        You need to hold at least 1 STREAM token. . .
+        <br>
+        Contract: 0x16522fAaD891bD5111495b92438985E6f0c47a61
+    </p>
+    <button (click)="connectWallet()">Connect MetaMask</button>
+</div>
+
+<!-- <button (click)="checkBalance()">Check wallet balance</button> -->
+
+<div *ngIf="getIsClaimed()">
+    <p>Welcome!</p>
+    
+</div>

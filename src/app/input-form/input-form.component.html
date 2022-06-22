@@ -1,0 +1,54 @@
+<div class="form-container">
+    <form [formGroup]="formRequired">
+        <div class="form-row form-section-text">
+            <p>Required</p>
+        </div>
+        <div class="form-row" 
+            [class.validation-error]="formRequired.controls['firstName'].invalid && formRequired.controls['firstName'].touched"
+            [class.valid-input]="formRequired.controls['firstName'].valid && formRequired.controls['firstName'].touched">
+            <input id="first-name" type="text" formControlName="firstName" placeholder="First name" required>
+        </div>
+        
+        <div class="form-row" 
+            [class.validation-error]="formRequired.controls['lastName'].invalid && formRequired.controls['lastName'].touched"
+            [class.valid-input]="formRequired.controls['lastName'].valid && formRequired.controls['lastName'].touched">
+            <input id="last-name" type="text" formControlName="lastName" placeholder="Last name" required>
+        </div>
+        
+        <div class="" >
+            <ngx-intl-tel-input class="ngx-intl-tel-input" 
+                [class.validation-error]="formRequired.controls['phoneNumber'].invalid && (formRequired.controls['phoneNumber'].touched)"
+                [class.valid-input]="formRequired.controls['phoneNumber'].valid && (formRequired.controls['phoneNumber'].touched)"
+                [cssClass]="'custom'" 
+                [preferredCountries]=preferredCountries
+                [enableAutoCountrySelect]="false" 
+                [enablePlaceholder]="true" 
+                [searchCountryFlag]="false"
+                [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" 
+                [selectFirstCountry]="false"
+                [selectedCountryISO]=selectedCountry 
+                [phoneValidation]="true" 
+                [separateDialCode]=separateDialCode
+                formControlName="phoneNumber"
+                >
+            </ngx-intl-tel-input>
+        </div>
+
+        <div class="form-error" 
+            *ngIf="formRequired.invalid && 
+            (formRequired.controls['firstName'].invalid && formRequired.controls['firstName'].touched) ||
+            (formRequired.controls['lastName'].invalid && formRequired.controls['lastName'].touched) ||
+            (formRequired.controls['phoneNumber'].invalid && formRequired.controls['phoneNumber'].touched)">
+            Invalid or missing required inputs*
+        </div>
+        
+        <div class="form-row">
+            <!-- TODO: Add routerLink="/uppbeat/content" back to line below -->
+            <button type="button" [disabled]="formRequired.invalid" (click)="onSubmit()" routerLink="/poll">CONFIRM</button>
+        </div>
+        <!--Privacy Notice-->
+        <div style="text-align: left;font-size: 10px;font-weight: 100;color: #9b9b9b;">
+            By submitting my information, I agree to receive recurrent messages <br> to the contact information provided and to FanPad's <span style="text-decoration:underline">terms & conditions <br> </span> and <span style="text-decoration:underline">privacy policy</span>
+        </div>
+    </form>
+</div>

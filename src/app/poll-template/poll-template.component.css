@@ -1,0 +1,451 @@
+@font-face {
+    font-family: 'CircularAbstracts';
+    src: url('../../assets/fonts/Circular Abstracts.ttf');
+}
+
+@font-face {
+    font-family: 'TradeGothic';
+    src: url('../../assets/fonts/Trade Gothic LT.ttf');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'TradeGothic';
+    src: url('../../assets/fonts/Trade Gothic LT Bold.ttf');
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'TradeGothic';
+    src: url('../../assets/fonts/Trade Gothic LT Bold No. 2.ttf');
+    font-weight: 400;
+}
+
+*{
+    font-family: TradeGothic;
+    font-weight: 100;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+:host{
+    overflow-x: hidden;
+}
+
+
+/* GENERAL STYLES */
+
+h1 {
+    color: white;
+    font-weight: bold;
+}
+
+p {
+    color: white;
+}
+
+.hide-marker{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.box-shadow{
+    box-shadow: rgb(0, 0, 0) 0 5px 10px 0px;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.flex-center{
+    justify-content: center;
+}
+
+.position-relative{
+    position: relative;
+}
+
+.text-bold {
+    font-weight: 200;
+}
+
+.text-large {
+    font-size: 1.2em;
+}
+
+.transition-ease {
+    transition: 250ms ease-in-out;
+}
+
+button {
+    padding: 0.5em 1.5em 0.5em 1.5em;
+    border-radius: 10px;
+    border: none;
+    background-color: #00A0BF;
+    color: white;
+    font-size: 1em;
+    font-weight: 200;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+}
+
+button:disabled{
+    background-color: rgb(176, 176, 176);
+}
+
+button:disabled:hover{
+    box-shadow: none;
+    text-shadow: none;
+}
+
+button:disabled:after{}
+
+.button{
+    width: min-content;
+    position: relative;
+}
+
+button:hover{
+    box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.85), 0 0 30px rgba(255, 255, 255, .2);
+    text-shadow: 1px 1px 2px #00A0BF; 
+    transition-duration: 0.1s;
+}
+
+button:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 1em;
+  left: 0;
+  top: -100%;
+  transform: translateY(100%);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  box-shadow: 0 0 10px 1em white;
+}
+
+button:active:after {
+  box-shadow: 0 0 0 0 white;
+  position: absolute;
+  border-radius: 1em;
+  left: 0;
+  top: -100%;
+  opacity: 1;
+  transition: 0s;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.hover-shadow {
+    filter: drop-shadow(0x 3px 3px black);
+    -webkit-filter: drop-shadow(0px 3px 3px black);
+}
+
+.white-border{
+    border: 2px solid white;
+}
+
+/* SPECIFIC STYLES */
+.page-container {
+    font-family: 'TradeGothic';
+    font-weight: 100;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+    box-sizing: border-box;
+    -moz-osx-font-smoothing: grayscale;
+
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    /* height: 100vh; */
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: rgb(44, 44, 44, 0);
+    /* background-size: cover; */
+}
+
+.background-image {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: url('../../assets/img/joey-burbach-background-gradient.png');
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    background-position: center;
+    background-size: cover;
+    opacity: 60%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    z-index: -100;
+}
+
+
+.artist-image {
+    /* background-color: rgb(203, 203, 203); */
+    width: 100%;
+    /* height: 100px; */
+    margin: 1em auto 1em auto;
+    /* margin-top: 1em; */
+    
+    border-radius: 10px;
+    /* box-shadow: rgb(0, 0, 0) 0 5px 10px 0px; */
+}
+
+.artist-image h1{
+    width: 100%;
+    color: black;
+    font-size: 2.25em;
+    font-weight: 400;
+    padding: .25em 0 .5em 0;
+    margin:0;
+}
+
+.circle-image {
+    /* height: 50%; */
+    width: 45%;
+    max-width: 8em;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 15%;
+}
+
+.circle-image img {
+    transform: scale(1.05);
+}
+
+.welcome-text p {
+    font-size: 24px;
+    color: black;
+    font-weight: 200;
+}
+
+.poll-container {
+    background-color: rgb(234, 239, 242);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 1em;
+    padding: 1em;
+    padding-bottom: 2em;
+}
+
+.poll-header{
+    background-color:rgb(255, 255, 255); width:95%; margin:auto;
+    border-radius: 10px;
+    /* padding: 0.5em; */
+    width: fit-content;
+    max-width: 75ch;
+    margin: auto 1em;
+}
+
+.poll-header p{
+    color: black;
+    text-align: center; 
+    font-size: 1.2em;
+    padding: 0.5em;
+    margin: 0;
+}
+
+.poll-options{
+    display:flex;
+    flex-wrap: wrap;
+    margin: 1em 0em;
+    width: 100%;
+    /* max-width: 75ch; */
+}
+
+.poll-options li:not(:last-child) {
+    /* border-right: 1px solid rgba(158, 158, 158, 0.29); */
+    border-bottom: 1px solid rgba(158, 158, 158, 0.29);
+}
+
+.poll-element {
+    padding: 0 1em 0 1em;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.poll-element-title{
+    height: 4em; 
+    width: 100%; 
+    margin: auto;
+}
+
+.poll-element h3{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    /* width: 100%; */
+    /* max-width: 15ch; */
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+    margin: auto;
+    font-weight: 200;
+}
+
+.vote-button {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+    position: relative;
+}
+
+/* .poll-element button {
+    margin-top: 1em;
+} */
+
+.poll-results {
+    /* text-align: center; */
+    background-color: whitesmoke;
+    width: 90%;
+    max-width: 45ch;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding:0.5em;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px 1px rgba(178, 178, 178, 0.344);
+}
+
+.poll-results p {
+    color: black;
+    position: relative;
+    z-index: 1;
+    margin: 1em;
+}
+
+.poll-result{
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 5px;
+    margin: 0.5em;
+    padding-right: 3em;
+}
+
+.poll-result p{
+    max-width: 40ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.result-header {
+    margin: 0.5em 0.5em 1em 0.5em;
+}
+
+.percent-bar{
+    transition: 250ms ease-in-out;
+    width: 0%;
+    height: 100%;
+    background-color: #00a0bf;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    left:0;
+    z-index: 0;
+    border-radius: inherit;
+}
+
+.percent-text{
+    position: absolute;
+    right:1em;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+/* Soundcloud iFrame */
+iframe{
+    /* height: 68px; */
+}
+
+
+/* Footer Section -- Fanpad logo */
+.footer {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10em;
+    /* font-family: 'CircularAbstracts'; */
+}
+
+.social-icon {
+    margin: 1rem;
+}
+
+.footer p {
+    font-family: 'CircularAbstracts';
+    /* font-size: medium; */
+    width: 100%;
+    color: white;
+    /* font-weight: normal; */
+    padding: 0.1em;
+}
+
+.footer b {
+    font-family: 'CircularAbstracts';
+    font-weight: normal;
+    color: #0EA0C0;
+}
+
+.fanpad-logo img{
+    margin: auto;
+    width: 45%;
+    max-width: 5rem;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes identifier {
+    
+}
+
+/* ------------------------------------
+    MEDIA QUERIES
+------------------------------------ */
+
+/* Mobile first approach */
+
+@media screen and (min-width: 376px) {}
+
+@media screen and (min-width: 575px) {}
+
+@media screen and (min-width: 767px) {
+
+    .poll-container{
+        padding-top: 2em;
+    }
+
+    .poll-options{
+        margin: 2em auto;
+    }
+
+    .poll-results{
+        margin: 2em auto;
+    }
+
+    .poll-header p {
+        font-weight: bold;
+    }
+
+    .poll-options{
+        flex-wrap: nowrap;
+    }
+
+    .poll-options li:not(:last-child) {
+        border-right: 1px solid rgba(158, 158, 158, 0.29);
+        border-bottom: none;
+    }
+}

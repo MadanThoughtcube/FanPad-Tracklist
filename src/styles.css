@@ -1,0 +1,72 @@
+/* ------------------------------------
+    GLOBAL STYLES 
+------------------------------------ */
+
+
+/* THIRD PARTY COMPONENT STYLING
+*
+*  The goal here is to target specific elements without affecting styles somewhere else if the component is used again.
+*  At the moment it appears that global styles will be created regardless, so creating custom classes seems to be the 
+*  best solution to maintain consistent specificity and readability.
+*/
+
+.ngx-intl-tel-input {
+    font-size: 12px;
+    width: 100%;
+}
+
+.ngx-intl-tel-input .iti {
+    margin: 0;
+    min-height: 2.5rem;
+    width: 100%;
+}
+
+.ngx-intl-tel-input .iti .iti__arrow {
+    border-top: 4px solid #B2B2B2;
+}
+
+.ngx-intl-tel-input input {
+    /* font-size: 1em; */
+    
+    width: 100%;
+    background-color: #5D5D5D;
+    border: 1px solid #6c6c6f;
+    border-radius: 5px;
+    min-height: 2.5rem;
+    box-shadow: inset 0 3px 10px -5px black;
+    /* padding: 0; */
+}
+
+.ngx-intl-tel-input.validation-error :is(.ng-touched) {
+    border-bottom: 2px solid red;
+}
+
+.ngx-intl-tel-input.valid-input :is(.ng-touched) {
+    border-bottom: 2px solid greenyellow;
+}
+
+.ngx-intl-tel-input input::placeholder,
+.selected-dial-code {
+    color: #B2B2B2;
+}
+
+.ngx-intl-tel-input input,
+select,
+textarea {
+    color: white;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*change background here by replacing background image url*/
+html{
+    display: relative;
+    background-image: url(https://fanpad.xyz/img/bg.png);
+    background-repeat: no-repeat !important;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}

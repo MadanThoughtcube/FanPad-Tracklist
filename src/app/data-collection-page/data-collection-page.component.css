@@ -1,0 +1,359 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
+    box-sizing: border-box;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+@font-face {
+    font-family: 'CircularAbstracts';
+    src: url('../../assets/fonts/Circular Abstracts.ttf');
+}
+
+@font-face {
+    font-family: 'TradeGothic';
+    src: url('../../assets/fonts/Trade Gothic LT.ttf');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'TradeGothic';
+    src: url('../../assets/fonts/Trade Gothic LT Bold.ttf');
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'TradeGothic';
+    src: url('../../assets/fonts/Trade Gothic LT Bold No. 2.ttf');
+    font-weight: 400;
+}
+
+:host body {
+    overscroll-behavior: none;
+}
+
+/* :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'TradeGothic';
+    font-size: 12px;
+    text-align: center;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+} */
+
+
+/* ------------------------------------
+    GENERAL STYLES 
+------------------------------------ */
+
+/* Flex Behavior */
+
+.full-width {
+    width: 100%;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-inline-flex {
+    display: inline-flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-column-reverse {
+    flex-direction: column-reverse;
+}
+
+.flex-justify-start {
+    justify-content: flex-start;
+}
+
+.flex-justify-end {
+    justify-content: flex-end;
+}
+
+.flex-justify-center {
+    justify-content: center;
+}
+
+.flex-justify-between {
+    justify-content: space-between;
+}
+
+.flex-justify-around {
+    justify-content: space-around;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+/* Other */
+
+.hover-shadow {
+    filter: drop-shadow(0x 3px 3px black);
+    -webkit-filter: drop-shadow(0px 3px 3px black);
+}
+
+.white-border {
+    color: white;
+    border: 2px solid;
+}
+
+.color-white {
+    background-color: white;
+}
+
+.hide {
+    display: none;
+}
+
+/* ------------------------------------
+    SPECIFIC STYLES 
+------------------------------------ */
+
+.page-container {
+
+    font-family: 'TradeGothic';
+    font-weight: 100;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+    box-sizing: border-box;
+    /* -webkit-font-smoothing: antialiased; */
+    -moz-osx-font-smoothing: grayscale;
+
+
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    /* height: 100vh; */
+    height: 100%;
+    width: 100%;
+    /* overflow-x: hidden; */
+    overflow-y: scroll;
+    background-color: rgb(44, 44, 44);
+    /* background-size: cover; */
+}
+
+.background-image {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    /* background-image: url('../assets/img/hivis-brick-wall.png'); */
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    background-position: center;
+    background-size: cover;
+    opacity: 60%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.page-content {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    /* max-width: 75ch; */
+    height: auto;
+    min-height: 100vh;
+    z-index: 2;
+
+}
+
+.page-content p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: white;
+}
+
+
+.page-content p {
+    /* text-align: center; */
+    word-wrap: break-word;
+
+    padding: .5em;
+}
+
+
+/* Artist Info */
+
+.artist {
+    margin: auto;
+    width: 100%;
+    min-width: none;
+    padding-top: 1rem;
+}
+
+.artist h1 {
+    width: 100%;
+    color: black;
+    font-size: 2.25em;
+    font-weight: 400;
+    padding: .25em 0 .5em 0;
+}
+
+.circle-image {
+    /* height: 50%; */
+    width: 45%;
+    max-width: 8em;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 15%;
+}
+
+.circle-image img {
+    transform: scale(1.05);
+}
+
+.welcome-text {
+    position: relative;
+    top: .01em;
+}
+
+.welcome-text p {
+    font-size: 24px;
+    color: black;
+    font-weight: 400;
+}
+
+.welcome-text b {
+    color: #F63B08;
+}
+
+
+/* User Input Form */
+
+.form-container {
+    width: fit-content;
+    margin: auto;
+    background-color: #1D1D1D;
+    border-radius: 15px;
+}
+
+.form-max-width {
+    max-width: 95%;
+}
+
+.form-content {
+    padding: 1em;
+    width: 90%;
+    margin: auto;
+}
+
+.form-header {
+    text-align: center;
+    /* max-width: 15rem; */
+    margin: auto;
+}
+
+.form-header b {
+    color: #F63B08;
+}
+
+.form-input {
+    text-align: center;
+    /* max-width: 15rem; */
+    margin: auto;
+}
+
+.form-footer {
+    /* max-width: 40ch; */
+    display: flex;
+    margin: auto;
+}
+
+.form-footer p,
+a {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 100;
+    color: #9B9B9B;
+}
+
+/* Social media  */
+
+.social-media {
+    width: 100%;
+}
+
+.social-media svg {
+    color: white;
+}
+
+
+/* Footer Section -- Fanpad logo */
+.footer {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10em;
+}
+
+.social-icon {
+    margin: 1rem;
+}
+
+.footer p {
+    font-family: 'CircularAbstracts';
+    font-size: medium;
+    width: 100%;
+    color: white;
+    font-weight: normal;
+    padding: 0.1em;
+}
+
+.footer b {
+    font-weight: normal;
+    color: #0EA0C0;
+}
+
+.fanpad-logo {
+    margin: auto;
+    width: 45%;
+    max-width: 5rem;
+}
+
+
+
+/* ------------------------------------
+    MEDIA QUERIES
+------------------------------------ */
+
+/* Mobile first approach */
+
+@media screen and (min-width: 376px) {}
+
+@media screen and (min-width: 575px) {}
+
+@media screen and (min-width: 767px) {
+    .form-max-width {
+        max-width: 30em;
+    }
+}
